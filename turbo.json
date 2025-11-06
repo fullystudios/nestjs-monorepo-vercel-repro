@@ -1,0 +1,57 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "stream",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "@repo/email-templates#build": {
+      "env": [
+        "ENVIRONMENT",
+        "APP_NAME",
+        "APP_DESCRIPTION",
+        "PUBLIC_PORTAL_URL",
+        "PUBLIC_API_URL",
+        "DATABASE_HOST",
+        "DATABASE_PORT",
+        "DATABASE_NAME",
+        "DATABASE_USERNAME",
+        "DATABASE_PASSWORD",
+        "DATABASE_SSL",
+        "ORY_BASE_URL",
+        "ORY_INTERNAL_SECRET",
+        "AUTH_SECRET"
+      ]
+    },
+    "api#build": {
+      "env": [
+        "ENVIRONMENT",
+        "APP_NAME",
+        "APP_DESCRIPTION",
+        "PUBLIC_PORTAL_URL",
+        "PUBLIC_API_URL",
+        "DATABASE_HOST",
+        "DATABASE_PORT",
+        "DATABASE_NAME",
+        "DATABASE_USERNAME",
+        "DATABASE_PASSWORD",
+        "DATABASE_SSL",
+        "ORY_BASE_URL",
+        "ORY_INTERNAL_SECRET",
+        "AUTH_SECRET"
+      ]
+    }
+  }
+}

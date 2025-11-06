@@ -1,0 +1,25 @@
+{
+  "name": "repo",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "format": "biome check --diagnostic-level=error .",
+    "format:fix": "biome check --diagnostic-level=error . --write",
+    "check-types": "turbo run check-types"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2",
+    "tsx": "^4",
+    "turbo": "^2.6.0",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@10.20.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "volta": {
+    "node": "24.11.0",
+    "pnpm": "10.20.0"
+  }
+}

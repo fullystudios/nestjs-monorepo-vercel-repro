@@ -1,0 +1,53 @@
+version: v0.11.1
+
+# Database configuration
+dsn: postgres://keto:keto_password@postgres:5432/platzer_keto_e2e?sslmode=disable
+
+# Server configuration
+serve:
+  read:
+    host: 0.0.0.0
+    port: 4477
+    cors:
+      enabled: true
+      allowed_origins:
+        - "*"
+      allowed_methods:
+        - POST
+        - GET
+        - PUT
+        - PATCH
+        - DELETE
+      allowed_headers:
+        - "*"
+      exposed_headers:
+        - "*"
+  write:
+    host: 0.0.0.0
+    port: 4478
+    cors:
+      enabled: true
+      allowed_origins:
+        - "*"
+      allowed_methods:
+        - POST
+        - GET
+        - PUT
+        - PATCH
+        - DELETE
+      allowed_headers:
+        - "*"
+      exposed_headers:
+        - "*"
+  metrics:
+    host: 0.0.0.0
+    port: 4479
+
+# Namespace configuration - inline definition
+namespaces:
+  location: file:///etc/keto/namespace.ts
+
+# Log configuration for development
+log:
+  level: debug
+  format: json
